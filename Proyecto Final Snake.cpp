@@ -2,19 +2,59 @@
 
 #include <iostream>
 #include <GL/glut.h>
+#include <math.h>
 
-const int tamanio = 12; // Tama駉 de la matriz
 
-// Funci髇 para hacer el muro con matrices 
+using namespace std; 
+ 
+	void myInit() {
+	glClearColor(1.0, 1.0, 1.0, 1.0);
+	glColor3f(1.0, 0.0, 0.0);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(-10.0, 10.0, -10.0, 10.0);
+	glMatrixMode(GL_MODELVIEW);
+	}
+
+	   
+	void start() { 
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		glEnd();
+
+	} 
+
+	void myDisplay() {  
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		glFlush();
+	} 
+
+	void myMenu(int id) {
+		cout << "kk" << id;
+		switch (id)
+		{
+		case 1:
+			start(); 
+			break;
+
+		case 2:
+			exit(0);
+			break;
+		}
+	}
+const int tamanio = 12; // Tama帽o de la matriz
+
+// Funci贸n para hacer el muro con matrices 
 void dibujarMuro() {
 
     // Borrar el buffer de color
     glClear(GL_COLOR_BUFFER_BIT);
 
-    // Establecer el color de la l韓ea para cada parte de los 
+    // Establecer el color de la l铆nea para cada parte de los 
     glColor3f(1.0f, 1.0f, 1.0f); //Blanco
 
-    // Dibujar l韓eas verticales para los bordes 
+    // Dibujar l铆neas verticales para los bordes 
     glBegin(GL_LINES);
     for (int i = 0; i <= tamanio; i++) { //Columnas
         glVertex2f(i, 0); 
@@ -29,13 +69,13 @@ void dibujarMuro() {
     glutSwapBuffers();
 }
 
-// Funci髇 para inicializar OpenGL
+// Funci贸n para inicializar OpenGL
 void inicializarGl() {
 
     // Es para el color de fondo que va a tener
     glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
 
-    // Configurar la proyecci髇 ortogr醘ica
+    // Configurar la proyecci贸n ortogr谩fica
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(0.0, tamanio, 0.0, tamanio, -1.0, 1.0);
@@ -48,22 +88,37 @@ int main(int argc, char** argv) {
     // Inicializar la libreria GLUT
     glutInit(&argc, argv);
 
+    int menu_id;
+		glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+		glutInitWindowSize(800, 500); 
+		glutInitWindowPosition(0, 0);
+		glutCreateWindow("Simple Menu");
+		glutDisplayFunc(myDisplay);
+		menu_id = glutCreateMenu(myMenu);
+		glutAddMenuEntry("Start", 1); 
+		glutAddMenuEntry("Exit", 2);
+		glutAttachMenu(GLUT_LEFT_BUTTON);
+
+		myInit(); 
+
     // Esto es para que se pueda ver una ventana para el juego
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 
     // Crear la ventana que se va a ver a la hora de que corra el programa
     glutInitWindowSize(600, 600); // Cuantos pixeles quiere que tenga el juego
-    glutInitWindowPosition(100, 100); // Posici髇 de la ventana
+    glutInitWindowPosition(100, 100); // Posici贸n de la ventana
     glutCreateWindow("Serpiente al ataque");
 
     // Inicializar OpenGL
     inicializarGl();
 
-    // Establecer la funci髇 para poder ver el mapa
+    // Establecer la funci贸n para poder ver el mapa
     glutDisplayFunc(dibujarMuro);
 
     // Iniciar el ciclo principa
     glutMainLoop();
+
+    
 
     return 0;
 }
