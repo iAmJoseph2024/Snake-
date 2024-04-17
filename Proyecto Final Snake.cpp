@@ -7,7 +7,7 @@
 
 using namespace std; 
  
-	void myInit() {
+	void myInit() { //Funcion para establecer el fondo del menu
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glColor3f(1.0, 0.0, 0.0);
 	glMatrixMode(GL_PROJECTION);
@@ -17,20 +17,20 @@ using namespace std;
 	}
 
 	   
-	void start() { 
+	void start() { //Funcion para establecer la vista de la pantalla del start
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glEnd();
 
 	} 
 
-	void myDisplay() {  
+	void myDisplay() {  //Funcion para poder desplegar la ventana
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glFlush();
 	} 
 
-	void myMenu(int id) {
+	void myMenu(int id) { //Funcion para determinar acciones dentro de la ventana 
 		cout << "kk" << id;
 		switch (id)
 		{
@@ -88,18 +88,18 @@ int main(int argc, char** argv) {
     // Inicializar la libreria GLUT
     glutInit(&argc, argv);
 
-    int menu_id;
+    int menu_id; //variable para mandar a llamar el menu
 		glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 		glutInitWindowSize(800, 500); 
-		glutInitWindowPosition(0, 0);
-		glutCreateWindow("Simple Menu");
+		glutInitWindowPosition(100, 100);
+		glutCreateWindow("Snake");
 		glutDisplayFunc(myDisplay);
 		menu_id = glutCreateMenu(myMenu);
 		glutAddMenuEntry("Start", 1); 
 		glutAddMenuEntry("Exit", 2);
-		glutAttachMenu(GLUT_LEFT_BUTTON);
+		glutAttachMenu(GLUT_LEFT_BUTTON); //Funcion para hacer aparecer el menu con click izquierdo de mouse (se cambiara para la creacion final del menu)
 
-		myInit(); 
+		myInit(); //Mandar a llamar la funcion myInit e inicializar el fondo
 
     // Esto es para que se pueda ver una ventana para el juego
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
