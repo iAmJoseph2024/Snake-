@@ -73,8 +73,13 @@ void dibujarMuro() {
 void inicializarGl() {
 
     // Es para el color de fondo que va a tener
-    glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
-
+        glClearColor(0.196f, 0.5686f, 0.7333f, 0.0f);
+/*El primero es R, segundo G y tercero B
+    Rango de 0.0 a 1.0, donde 0.0 es no color y 1.0 intencidad completa.
+Si quieren un color que sea la combinacion de todos se hace (R)/255
+    Donde R es el valor de rojo deseado (codigo RGB). Esto se hace para todos los valores (G,B)
+*/
+	
     // Configurar la proyección ortográfica
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
