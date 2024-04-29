@@ -8,7 +8,7 @@ Se ve como puntitos la serpiente y avansa sober las lineas del mapa*/
 using namespace std;
 
 //Variables globales
-const int tamanio = 12; // Tama�o de la matriz
+const int tamanio = 50; // Tama�o de la matriz
 const int velocidad = 900; //Velocidad que va a tener la serpiente 
 
 class Snake //Clase de la serpiente con todas sus caracteristicas
