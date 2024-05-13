@@ -5,6 +5,7 @@ Se ve como puntitos la serpiente y avansa sober las lineas del mapa*/
 #include <GL/glut.h> //Libreria para OpenGL
 #include <vector> 
 #include <cstdlib> // Para rand()
+#include <time.h>//Funcion tiempo para agarar semilla nueva
 using namespace std;
 
 //Variables globales
@@ -85,6 +86,7 @@ Snake serpiente; //Personaje de la serpiente
 pair<int, int> comidaPos;
 
 void generarComida() {
+    srand(time(NULL));
     comidaPos.first = rand() % tamanio;
     comidaPos.second = rand() % tamanio;
 }
