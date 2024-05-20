@@ -1,9 +1,13 @@
-# Snake-
-Juego Snake POO
-Integrantes:
-Jose.
-Rodrigo.
-Elkin.
-Rebecca.
+                                                                            Proyecto de la materia Programacion Orientada a Objetos
+                                                                                        Recreacion del juego Snake 
+                                                                                  Se usa la libreria SFML y el lenguaje C++
 
-*Primer entrega 17 de Abril
+                                                                                                Integrantes:
+                                                                                  Elkin Alejandro Rivas Mejia - #33256
+                                                                                 José Antonio Flores Espinoza - #37276
+                                                                                       Rebecca Fonseca Huerta - #38205
+
+==================================================================================================Como usarlo==========================================================================================================
+
+
+
