@@ -8,8 +8,8 @@ namespace Engine {
     // Definimos una clase llamada StateMan en el namespace Engine
     class StateMan {
     private:
-        std::stack<std::unique_ptr<State>> m_stateStack; // Pila de punteros únicos a objetos de tipo State
-        std::unique_ptr<State> m_newState; // Puntero único al nuevo estado a ser agregado
+        std::stack<std::unique_ptr<State>> m_stateStack; // Pila de punteros Ãºnicos a objetos de tipo State
+        std::unique_ptr<State> m_newState; // Puntero Ãºnico al nuevo estado a ser agregado
 
         bool m_add; // Variable para indicar si se va a agregar un nuevo estado
         bool m_replace; // Variable para indicar si se va a reemplazar el estado actual
@@ -20,7 +20,7 @@ namespace Engine {
         StateMan();
         ~StateMan();
 
-        // Métodos públicos de la clase StateMan
+        // MÃ©todos pÃºblicos de la clase StateMan
 
         // Agrega un nuevo estado a la pila de estados
         void Add(std::unique_ptr<State> toAdd, bool replace = false);
