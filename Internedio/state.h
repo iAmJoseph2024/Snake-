@@ -13,7 +13,7 @@ namespace Engine {
         virtual void Init() = 0; // Inicializa el estado
         virtual void ProcessInput() = 0; // Procesa la entrada del usuario
         virtual void Update(sf::Time deltaTime) = 0; // Actualiza el estado basado en el tiempo delta
-        virtual void Draw() = 0; // ìDibujaî el estado en pantalla
+        virtual void Draw() = 0; // ‚ÄúDibuja‚Äù el estado en pantalla
 
         virtual void Pause() {}; // Pausa el estado
         virtual void Start() {}; // Inicia el estado
