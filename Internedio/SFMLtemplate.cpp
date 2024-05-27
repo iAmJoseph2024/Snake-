@@ -6,7 +6,7 @@ int main()
     Game game;  // Creamos un objeto de la clase Game
     game.Run(); // Ejecutamos el juego
 
-    return 0; // Indicamos que la ejecución del programa fue exitosa
+    return 0; // Indicamos que la ejecuciÃ³n del programa fue exitosa
 }
 
  
