@@ -3,7 +3,7 @@
 // Constructor por defecto de la clase AssetMan
 Engine::AssetMan::AssetMan()
 {
-    // El constructor es generalizado y no requiere implementación adicional
+    // El constructor es generalizado y no requiere implementaciÃ³n adicional
 }
 
 // Destructor de la clase AssetMan
@@ -12,7 +12,7 @@ Engine::AssetMan::~AssetMan()
 
 }
 
-// Método para agregar una textura al AssetMan
+// MÃ©todo para agregar una textura al AssetMan
 void Engine::AssetMan::AddTexture(int id, const std::string& filePath, bool wantRepeated)
 {
     // Creamos una textura utilizando std::make_unique
@@ -28,7 +28,7 @@ void Engine::AssetMan::AddTexture(int id, const std::string& filePath, bool want
     }
 }
 
-// Método para agregar una fuente al AssetMan
+// MÃ©todo para agregar una fuente al AssetMan
 void Engine::AssetMan::AddFont(int id, const std::string& filePath)
 {
     // Creamos una fuente utilizando std::make_unique
@@ -42,14 +42,14 @@ void Engine::AssetMan::AddFont(int id, const std::string& filePath)
     }
 }
 
-// Método para obtener la variable texture constante a una textura del AssetMan
+// MÃ©todo para obtener la variable texture constante a una textura del AssetMan
 const sf::Texture& Engine::AssetMan::GetTexture(int id) const
 {
     // Devolvemos la variable constante a la textura con el id especificado
     return *(m_textures.at(id).get());
 }
 
-// Método para obtener una variable font constante a una fuente del AssetMan
+// MÃ©todo para obtener una variable font constante a una fuente del AssetMan
 const sf::Font& Engine::AssetMan::GetFont(int id) const
 {
     // Devolvemos la variable font constante a la fuente con el id especificado
