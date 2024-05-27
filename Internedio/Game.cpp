@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <SFML/Window/Event.hpp> // Incluimos la libreria para sf::Event
 #include <SFML/Graphics/CircleShape.hpp> // Incluimos la libreria para sf::CircleShape
-#include "MainMenu.h" // Incluimos la librería creada por nosotros para la clase MainMenu
+#include "MainMenu.h" // Incluimos la librerÃ­a creada por nosotros para la clase MainMenu
 
 // Constructor de la clase Game
 Game::Game() : m_context(std::make_shared<Context>()) {
@@ -14,7 +14,7 @@ Game::Game() : m_context(std::make_shared<Context>()) {
 // Destructor de la clase Game
 Game::~Game() {}
 
-// Método para iniciar la ejecución del juego
+// MÃ©todo para iniciar la ejecuciÃ³n del juego
 void Game::Run() {
 
     // Creamos un temporizador utilizando sf::Clock
@@ -23,10 +23,10 @@ void Game::Run() {
 
     // Bucle principal del juego
     while (m_context->m_window->isOpen()) {
-        // Actualizamos el tiempo transcurrido desde el último fotograma
+        // Actualizamos el tiempo transcurrido desde el Ãºltimo fotograma
         timeSinceLastFrame += clock.restart();
 
-        // Procesamos los eventos y actualizamos el juego en función del tiempo transcurrido
+        // Procesamos los eventos y actualizamos el juego en funciÃ³n del tiempo transcurrido
         while (timeSinceLastFrame > TIME_PER_FRAME) {
             timeSinceLastFrame -= TIME_PER_FRAME;
 
