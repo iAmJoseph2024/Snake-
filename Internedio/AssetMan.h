@@ -11,7 +11,7 @@ namespace Engine {
     // Definimos una clase llamada AssetMan en el namespace Engine
     class AssetMan {
     private:
-        // Mapas que almacenan punteros únicos a objetos de tipo sf::Texture y sf::Font
+        // Mapas que almacenan punteros Ãºnicos a objetos de tipo sf::Texture y sf::Font
         std::map<int, std::unique_ptr<sf::Texture>> m_textures;
         std::map<int, std::unique_ptr<sf::Font>> m_fonts;
 
