@@ -7,32 +7,32 @@ Engine::StateMan::StateMan() : m_add(false), m_replace(false), m_remove(false) {
 
 // Destructor de la clase StateMan
 Engine::StateMan::~StateMan() {
-    // El destructor es generalizado y no requiere implementación adicional
+    // El destructor es generalizado y no requiere implementaciÃ³n adicional
 }
 
-// Método para agregar un nuevo estado al StateMan
+// MÃ©todo para agregar un nuevo estado al StateMan
 void Engine::StateMan::Add(std::unique_ptr<State> toAdd, bool replace) {
     // Establecemos m_add a true para indicar que se debe agregar un nuevo estado
     m_add = true;
-    // Movemos el puntero único toAdd al miembro m_newState
+    // Movemos el puntero Ãºnico toAdd al miembro m_newState
     m_newState = std::move(toAdd);
     // Establecemos m_replace al valor proporcionado como argumento
     m_replace = replace;
 }
 
-// Método para eliminar el estado actual del StateMan
+// MÃ©todo para eliminar el estado actual del StateMan
 void Engine::StateMan::PopCurrent() {
     // Establecemos m_remove a true para indicar que se debe eliminar el estado actual
     m_remove = true;
 }
 
-// Método para procesar los cambios de estado pendientes
+// MÃ©todo para procesar los cambios de estado pendientes
 void Engine::StateMan::ProcessStateChange() {
     if (m_remove && (!m_stateStack.empty())) {
         // Eliminamos el estado actual del stack
         m_stateStack.pop();
 
-        // Si el stack aún contiene estados, llamamos al método Start() del nuevo estado actual
+        // Si el stack aÃºn contiene estados, llamamos al mÃ©todo Start() del nuevo estado actual
         if (!m_stateStack.empty()) {
             m_stateStack.top()->Start();
         }
@@ -42,7 +42,7 @@ void Engine::StateMan::ProcessStateChange() {
 
     // Si se solicita agregar un nuevo estado
     if (m_add) {
-        // Si se solicita reemplazar el estado actual y el stack no está vacío
+        // Si se solicita reemplazar el estado actual y el stack no estÃ¡ vacÃ­o
         if (m_replace && (!m_stateStack.empty())) {
             // Eliminamos el estado actual del stack
             m_stateStack.pop();
@@ -50,7 +50,7 @@ void Engine::StateMan::ProcessStateChange() {
             m_replace = false;
         }
 
-        // Si el stack no está vacío, llamamos al método Pause() del estado actual
+        // Si el stack no estÃ¡ vacÃ­o, llamamos al mÃ©todo Pause() del estado actual
         if (!m_stateStack.empty()) {
             m_stateStack.top()->Pause();
         }
@@ -64,7 +64,7 @@ void Engine::StateMan::ProcessStateChange() {
     }
 }
 
-// Método para obtener una referencia al estado actual del stack de estados
+// MÃ©todo para obtener una referencia al estado actual del stack de estados
 std::unique_ptr<Engine::State>& Engine::StateMan::GetCurrent() {
     // Devolvemos la variable al estado en la cima del stack
     return m_stateStack.top();
