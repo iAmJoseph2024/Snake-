@@ -12,9 +12,9 @@ enum AssetID {
 
 // Definimos una estructura llamada Context para almacenar los objetos necesarios para el juego
 struct Context {
-    std::unique_ptr<Engine::AssetMan> m_assets; // Puntero único a un objeto de tipo AssetMan
-    std::unique_ptr<Engine::StateMan> m_states; // Puntero único a un objeto de tipo StateMan
-    std::unique_ptr<sf::RenderWindow> m_window; // Puntero único a un objeto de tipo sf::RenderWindow
+    std::unique_ptr<Engine::AssetMan> m_assets; // Puntero Ãºnico a un objeto de tipo AssetMan
+    std::unique_ptr<Engine::StateMan> m_states; // Puntero Ãºnico a un objeto de tipo StateMan
+    std::unique_ptr<sf::RenderWindow> m_window; // Puntero Ãºnico a un objeto de tipo sf::RenderWindow
 
     // Constructor de la estructura Context
     Context() {
@@ -35,6 +35,6 @@ public:
     Game();
     ~Game();
 
-    // Método que inicia la ejecución del juego
+    // MÃ©todo que inicia la ejecuciÃ³n del juego
     void Run();
 };
