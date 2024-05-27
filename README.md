@@ -1,16 +1,16 @@
-                                           Proyecto de la materia Programacion Orientada a Objetos
-                                               Se usa la libreria SFML y el lenguaje C++
-                                                         Recreacion del juego Snake 
-                                                         
-                                                             Integrantes:
-                                                Elkin Alejandro Rivas Mejia - #33256
-                                               José Antonio Flores Espinoza - #37276
-                                                     Rebecca Fonseca Huerta - #38205
+                                      Proyecto de la materia Programacion Orientada a Objetos
+                                         Se usa la libreria SFML y el lenguaje C++
+                                                   Recreacion del juego Snake 
+                                                   
+                                                         Integrantes:
+                                            Elkin Alejandro Rivas Mejia - #33256
+                                           José Antonio Flores Espinoza - #37276
+                                                 Rebecca Fonseca Huerta - #38205
 
 Este proyecto es una recreaccion del juego de snake. 
 Esta recreaccion es cienporciento para usos recreativos y educativos.
 
-==========================================Como usarlo==========================================
+================================Como usarlo================================
 
 Este juego consiste en una pantalla inicial que tiene dos opciones "Play" y "Exit".
  
