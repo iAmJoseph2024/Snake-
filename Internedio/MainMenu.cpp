@@ -13,10 +13,10 @@ MainMenu::~MainMenu() {
 
 }
 
-// Método para inicializar los elementos de la interfaz de usuario
+// MÃ©todo para inicializar los elementos de la interfaz de usuario
 void MainMenu::Init() {
 
-	// Título
+	// TÃ­tulo
 	m_context->m_assets->AddFont(MAIN_FONT, "assets/Jersey15-Regular.ttf");
 	m_gameTitle.setFont(m_context->m_assets->GetFont(MAIN_FONT));
 	m_gameTitle.setString("Snake Game");
@@ -26,7 +26,7 @@ void MainMenu::Init() {
 		m_context->m_window->getSize().y / 2.8 - 250.f);
 	m_gameTitle.setCharacterSize(100);
 
-	// Botón de play
+	// BotÃ³n de play
 	m_playButton.setFont(m_context->m_assets->GetFont(MAIN_FONT));
 	m_playButton.setString("Play");
 	m_playButton.setOrigin(m_playButton.getLocalBounds().width / 2,
@@ -35,7 +35,7 @@ void MainMenu::Init() {
 		m_context->m_window->getSize().y / 2 - 90.f);
 	m_playButton.setCharacterSize(50);
 
-	// Botón de exit
+	// BotÃ³n de exit
 	m_exitButton.setFont(m_context->m_assets->GetFont(MAIN_FONT));
 	m_exitButton.setString("Exit");
 	m_exitButton.setOrigin(m_exitButton.getLocalBounds().width / 2,
@@ -45,7 +45,7 @@ void MainMenu::Init() {
 	m_exitButton.setCharacterSize(50);
 }
 
-// Método para procesar la entrada del usuario
+// MÃ©todo para procesar la entrada del usuario
 void MainMenu::ProcessInput() {
 	sf::Event event;
 	while (m_context->m_window->pollEvent(event))
@@ -89,7 +89,7 @@ void MainMenu::ProcessInput() {
 	}
 }
 
-// Método para actualizar el estado del menú principal
+// MÃ©todo para actualizar el estado del menÃº principal
 void MainMenu::Update(sf::Time deltaTime) {
 	if (m_isPlayButtonSelected) {
 		m_playButton.setFillColor(sf::Color::Yellow);
@@ -101,18 +101,18 @@ void MainMenu::Update(sf::Time deltaTime) {
 	}
 
 	if (m_isPlayButtonPressed) {
-		// Aquí se podría iniciar el juego
+		// AquÃ­ se podrÃ­a iniciar el juego
 	}
 	else if (m_isExitButtonPressed) {
 		m_context->m_window->close(); // Cerramos la ventana
 	}
 }
 
-// Método para dibujar los elementos del menú principal en la pantalla
+// MÃ©todo para dibujar los elementos del menÃº principal en la pantalla
 void MainMenu::Draw() {
 	m_context->m_window->clear(sf::Color::Green); // Le asignamos un color al fondo de la pantalla
-	m_context->m_window->draw(m_gameTitle); // Dibujamos el título del juego
-	m_context->m_window->draw(m_playButton); // Dibujamos el botón de play
-	m_context->m_window->draw(m_exitButton); // Dibujamos el botón de exit
+	m_context->m_window->draw(m_gameTitle); // Dibujamos el tÃ­tulo del juego
+	m_context->m_window->draw(m_playButton); // Dibujamos el botÃ³n de play
+	m_context->m_window->draw(m_exitButton); // Dibujamos el botÃ³n de exit
 	m_context->m_window->display(); // Mostramos la pantalla
 }
