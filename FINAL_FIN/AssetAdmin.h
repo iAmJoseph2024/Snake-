@@ -14,10 +14,10 @@ namespace Engine
         AssetMan();
         ~AssetMan();
 
-        // Añadir una textura al administrador de activos
+        // AÃ±adir una textura al administrador de activos
         void AnadirTextura(int id, const std::string& filePath, bool wantRepeated = false);
 
-        // Añadir una fuente al administrador de activos
+        // AÃ±adir una fuente al administrador de activos
         void AnadirFondo(int id, const std::string& filePath);
 
         // Obtener una textura por su identificador
@@ -27,7 +27,7 @@ namespace Engine
         const sf::Font& GetFondo(int id) const;
 
     private:
-        // Mapas para almacenar texturas y fuentes usando identificadores únicos
+        // Mapas para almacenar texturas y fuentes usando identificadores Ãºnicos
         std::map<int, std::unique_ptr<sf::Texture>> mTexturas;
         std::map<int, std::unique_ptr<sf::Font>> mFondos;
     };
