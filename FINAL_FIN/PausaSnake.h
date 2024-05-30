@@ -29,6 +29,6 @@ private:
     // Contexto compartido del juego
     std::shared_ptr<Context> mContexto;
 
-    // Texto para el título de pausa
+    // Texto para el tÃ­tulo de pausa
     sf::Text mTituloPausa;
 };
