@@ -5,19 +5,19 @@
 #include "State1.h"
 #include "JuegoSnake.h"
 
-// Clase que representa el estado del menú principal
+// Clase que representa el estado del menÃº principal
 class MainMenu : public Engine::State
 {
 private:
     // Contexto compartido del juego
     std::shared_ptr<Context> mContexto;
 
-    // Elementos de texto para el título y los botones del menú
+    // Elementos de texto para el tÃ­tulo y los botones del menÃº
     sf::Text mTituloJuego;
     sf::Text mBotonJugar;
     sf::Text mBotonSalir;
 
-    // Variables para gestionar la selección y pulsación de los botones
+    // Variables para gestionar la selecciÃ³n y pulsaciÃ³n de los botones
     bool mBotonPlaySeleccionado;
     bool mBotonPlayPresionado;
 
