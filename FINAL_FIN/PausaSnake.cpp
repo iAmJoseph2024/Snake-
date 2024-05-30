@@ -8,7 +8,7 @@ PauseGame::~PauseGame() {}
 // Funcion para inicializar el estado de pausa
 void PauseGame::Init()
 {
-    // Configurar el título de pausa
+    // Configurar el tÃ­tulo de pausa
     mTituloPausa.setFont(mContexto->mAssets->GetFondo(MAIN_FONT));
     mTituloPausa.setString("Pausa");
     mTituloPausa.setOrigin(mTituloPausa.getLocalBounds().width / 2, mTituloPausa.getLocalBounds().height / 2);
