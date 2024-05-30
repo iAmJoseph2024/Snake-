@@ -13,23 +13,23 @@ GameOver::GameOver(std::shared_ptr<Context>& context)
 // Destructor de GameOver
 GameOver::~GameOver() {}
 
-// Inicializaci髇 de elementos gr醘icos y de texto en la pantalla de Game Over
+// Inicializaci贸n de elementos gr谩ficos y de texto en la pantalla de Game Over
 void GameOver::Init()
 {
-    // T韙ulo
+    // T铆tulo
     mTituloSnakeJuego.setFont(mContexto->mAssets->GetFondo(MAIN_FONT));
     mTituloSnakeJuego.setString("Perdiste, vete a Administracion");
     mTituloSnakeJuego.setOrigin(mTituloSnakeJuego.getLocalBounds().width / 2, mTituloSnakeJuego.getLocalBounds().height / 2);
     mTituloSnakeJuego.setPosition(mContexto->mVentana->getSize().x / 2, mContexto->mVentana->getSize().y / 2 - 150.f);
 
-    // Bot髇 de Reiniciar
+    // Bot贸n de Reiniciar
     mBotonReiniciar.setFont(mContexto->mAssets->GetFondo(MAIN_FONT));
     mBotonReiniciar.setString("Reiniciar");
     mBotonReiniciar.setOrigin(mBotonReiniciar.getLocalBounds().width / 2, mBotonReiniciar.getLocalBounds().height / 2);
     mBotonReiniciar.setPosition(mContexto->mVentana->getSize().x / 2, mContexto->mVentana->getSize().y / 2 - 25.f);
     mBotonReiniciar.setCharacterSize(20);
 
-    // Bot髇 de Salir
+    // Bot贸n de Salir
     mBotonSalir.setFont(mContexto->mAssets->GetFondo(MAIN_FONT));
     mBotonSalir.setString("Salir");
     mBotonSalir.setOrigin(mBotonSalir.getLocalBounds().width / 2, mBotonSalir.getLocalBounds().height / 2);
@@ -85,10 +85,10 @@ void GameOver::ProcesarInput()
     }
 }
 
-// Actualizaci髇 l骻ica basada en el tiempo transcurrido
+// Actualizaci贸n l贸gica basada en el tiempo transcurrido
 void GameOver::Actualizar(const sf::Time& deltaTime)
 {
-    // Cambiar el color del texto de los botones seg鷑 est閚 seleccionados o presionados
+    // Cambiar el color del texto de los botones seg煤n est茅n seleccionados o presionados
     if (mBotonReiniciarSeleccionado)
     {
         mBotonReiniciar.setFillColor(sf::Color::Black);
@@ -100,7 +100,7 @@ void GameOver::Actualizar(const sf::Time& deltaTime)
         mBotonReiniciar.setFillColor(sf::Color::White);
     }
 
-    // Realizar acciones seg鷑 el bot髇 presionado
+    // Realizar acciones seg煤n el bot贸n presionado
     if (mBotonReiniciarPresionado)
     {
         mContexto->mStates->Add(std::make_unique<GamePlay>(mContexto), true);  // Iniciar el estado de juego si se presiona Reiniciar
@@ -115,8 +115,8 @@ void GameOver::Actualizar(const sf::Time& deltaTime)
 void GameOver::Dibujar()
 {
     mContexto->mVentana->clear(sf::Color::Green);  // Limpiar la pantalla con un color verde
-    mContexto->mVentana->draw(mTituloSnakeJuego);  // Dibujar el t韙ulo en la pantalla
-    mContexto->mVentana->draw(mBotonReiniciar);  // Dibujar el bot髇 de Reiniciar en la pantalla
-    mContexto->mVentana->draw(mBotonSalir);  // Dibujar el bot髇 de Salir en la pantalla
+    mContexto->mVentana->draw(mTituloSnakeJuego);  // Dibujar el t铆tulo en la pantalla
+    mContexto->mVentana->draw(mBotonReiniciar);  // Dibujar el bot贸n de Reiniciar en la pantalla
+    mContexto->mVentana->draw(mBotonSalir);  // Dibujar el bot贸n de Salir en la pantalla
     mContexto->mVentana->display();  // Mostrar los elementos dibujados en la pantalla
 }
