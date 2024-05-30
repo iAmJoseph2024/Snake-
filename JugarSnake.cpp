@@ -6,54 +6,63 @@
 #include <time.h>
 #include <algorithm>
 
+// Constructor de la clase GamePlay
 GamePlay::GamePlay(std::shared_ptr<Context>& context) : mContexto(context), mPuntuacion(0), mDireccionSnake({ 16.f, 0.f }), mTiempoPasado(sf::Time::Zero), mPausado(false)
 {
+    // Inicializar el generador de números aleatorios
     srand(time(nullptr));
 }
 
+// Destructor de la clase GamePlay
 GamePlay::~GamePlay() {}
 
+// Funcion para inicializar el estado de juego
 void GamePlay::Init()
 {
+    // Cargar texturas
     mContexto->mAssets->AnadirTextura(GRASS, "Assets/Textures/grass.png", true);
     mContexto->mAssets->AnadirTextura(FOOD, "Assets/Textures/food.png");
-    mContexto->mAssets->AnadirTextura(WALL, "Assets/Textures/wall.png", true); 
-    mContexto->mAssets->AnadirTextura(SNAKE, "Assets/Textures/snake.png"); 
+    mContexto->mAssets->AnadirTextura(WALL, "Assets/Textures/wall.png", true);
+    mContexto->mAssets->AnadirTextura(SNAKE, "Assets/Textures/snake.png");
 
+    // Configurar el sprite del césped
     mCesped.setTexture(mContexto->mAssets->GetTextura(GRASS));
-    mCesped.setTextureRect(mContexto->mVentana->getViewport(mContexto->mVentana->getDefaultView())); 
+    mCesped.setTextureRect(mContexto->mVentana->getViewport(mContexto->mVentana->getDefaultView()));
 
+    // Configurar los sprites de las paredes
     for (auto& wall : mParedes)
     {
         wall.setTexture(mContexto->mAssets->GetTextura(WALL));
     }
-
     mParedes[0].setTextureRect({ 0, 0, (int)mContexto->mVentana->getSize().x, 16 });
     mParedes[1].setTextureRect({ 0, 0, (int)mContexto->mVentana->getSize().x, 16 });
-    mParedes[1].setPosition(0, mContexto->mVentana->getSize().y - 16); 
-
+    mParedes[1].setPosition(0, mContexto->mVentana->getSize().y - 16);
     mParedes[2].setTextureRect({ 0, 0, 16, (int)mContexto->mVentana->getSize().y });
     mParedes[3].setTextureRect({ 0, 0, 16, (int)mContexto->mVentana->getSize().y });
     mParedes[3].setPosition(mContexto->mVentana->getSize().x - 16, 0);
 
+    // Configurar el sprite de la comida
     mComida.setTexture(mContexto->mAssets->GetTextura(FOOD));
-    mComida.setPosition(mContexto->mVentana->getSize().x / 2, mContexto->mVentana->getSize().y / 2); 
+    mComida.setPosition(mContexto->mVentana->getSize().x / 2, mContexto->mVentana->getSize().y / 2);
 
-    mSerpiente.Init(mContexto->mAssets->GetTextura(SNAKE)); 
+    // Inicializar la serpiente
+    mSerpiente.Init(mContexto->mAssets->GetTextura(SNAKE));
 
-    mPuntuacionTexto.setFont(mContexto->mAssets->GetFondo(MAIN_FONT)); 
-    mPuntuacionTexto.setString("Puntuacion : " + std::to_string(mPuntuacion)); 
-    mPuntuacionTexto.setCharacterSize(15); 
+    // Configurar el texto de la puntuación
+    mPuntuacionTexto.setFont(mContexto->mAssets->GetFondo(MAIN_FONT));
+    mPuntuacionTexto.setString("Puntuacion : " + std::to_string(mPuntuacion));
+    mPuntuacionTexto.setCharacterSize(15);
 }
 
+// Funcion para procesar la entrada del usuario
 void GamePlay::ProcesarInput()
 {
     sf::Event event;
-    while (mContexto->mVentana->pollEvent(event)) 
+    while (mContexto->mVentana->pollEvent(event))
     {
         if (event.type == sf::Event::Closed)
         {
-            mContexto->mStates->PopAll(); 
+            mContexto->mStates->PopAll();
         }
         else if (event.type == sf::Event::KeyPressed)
         {
@@ -75,12 +84,12 @@ void GamePlay::ProcesarInput()
             case sf::Keyboard::Escape:
                 mContexto->mStates->Add(std::make_unique<PauseGame>(mContexto));
                 break;
-
             default:
                 break;
             }
 
-            if (std::abs(mDireccionSnake.x) != std::abs(newDirection.x) ||  std::abs(mDireccionSnake.y) != std::abs(newDirection.y))
+            // Evitar que la serpiente se mueva en la dirección opuesta a su movimiento actual
+            if (std::abs(mDireccionSnake.x) != std::abs(newDirection.x) || std::abs(mDireccionSnake.y) != std::abs(newDirection.y))
             {
                 mDireccionSnake = newDirection;
             }
@@ -88,6 +97,7 @@ void GamePlay::ProcesarInput()
     }
 }
 
+// Funcion para actualizar el estado del juego
 void GamePlay::Actualizar(const sf::Time& deltaTime)
 {
     if (!mPausado)
@@ -96,22 +106,24 @@ void GamePlay::Actualizar(const sf::Time& deltaTime)
 
         if (mTiempoPasado.asSeconds() > 0.1)
         {
+            // Comprobar si la serpiente choca con las paredes
             for (auto& wall : mParedes)
             {
-                if (mSerpiente.IsOn(wall)) 
+                if (mSerpiente.IsOn(wall))
                 {
-                    mContexto->mStates->Add(std::make_unique<GameOver>(mContexto), true); 
+                    mContexto->mStates->Add(std::make_unique<GameOver>(mContexto), true);
                     break;
                 }
             }
 
+            // Comprobar si la serpiente se ha comido la comida
             if (mSerpiente.IsOn(mComida))
             {
                 mSerpiente.Crecer(mDireccionSnake);
 
                 int x = 0, y = 0;
                 x = (rand() % mContexto->mVentana->getSize().x, 16, mContexto->mVentana->getSize().x - 2 * 16);
-                y = (rand() % mContexto->mVentana->getSize().y, 16, mContexto->mVentana->getSize().y - 2 * 16); 
+                y = (rand() % mContexto->mVentana->getSize().y, 16, mContexto->mVentana->getSize().y - 2 * 16);
 
                 mComida.setPosition(x, y);
                 mPuntuacion += 1;
@@ -122,6 +134,7 @@ void GamePlay::Actualizar(const sf::Time& deltaTime)
                 mSerpiente.Mover(mDireccionSnake);
             }
 
+            // Comprobar si la serpiente choca consigo misma
             if (mSerpiente.Chocar())
             {
                 mContexto->mStates->Add(std::make_unique<GameOver>(mContexto), true);
@@ -132,7 +145,8 @@ void GamePlay::Actualizar(const sf::Time& deltaTime)
     }
 }
 
-void GamePlay::Dibujar() 
+// Funcion para dibujar el estado del juego
+void GamePlay::Dibujar()
 {
     mContexto->mVentana->clear();
     mContexto->mVentana->draw(mCesped);
@@ -142,12 +156,13 @@ void GamePlay::Dibujar()
         mContexto->mVentana->draw(wall);
     }
     mContexto->mVentana->draw(mComida);
-    mContexto->mVentana->draw(mSerpiente);  
-    mContexto->mVentana->draw(mPuntuacionTexto); 
+    mContexto->mVentana->draw(mSerpiente);
+    mContexto->mVentana->draw(mPuntuacionTexto);
 
-    mContexto->mVentana->display(); 
+    mContexto->mVentana->display();
 }
 
+// Funciones para pausar y reanudar el juego
 void GamePlay::Pausa()
 {
     mPausado = true;
