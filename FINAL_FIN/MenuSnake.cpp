@@ -12,26 +12,26 @@ MainMenu::MainMenu(std::shared_ptr<Context>& context)
 
 MainMenu::~MainMenu() {}
 
-// Funcion para inicializar el menú principal
+// Funcion para inicializar el menÃº principal
 void MainMenu::Init()
 {
     // Cargar la fuente principal
     mContexto->mAssets->AnadirFondo(MAIN_FONT, "Assets/Fonts/PressStart2P-Regular.ttf");
 
-    // Configurar el título del juego
+    // Configurar el tÃ­tulo del juego
     mTituloJuego.setFont(mContexto->mAssets->GetFondo(MAIN_FONT));
     mTituloJuego.setString("Snake OOP");
     mTituloJuego.setOrigin(mTituloJuego.getLocalBounds().width / 2, mTituloJuego.getLocalBounds().height / 2);
     mTituloJuego.setPosition(mContexto->mVentana->getSize().x / 2, mContexto->mVentana->getSize().y / 2 - 150.f);
 
-    // Configurar el botón de jugar
+    // Configurar el botÃ³n de jugar
     mBotonJugar.setFont(mContexto->mAssets->GetFondo(MAIN_FONT));
     mBotonJugar.setString("Jugar");
     mBotonJugar.setOrigin(mBotonJugar.getLocalBounds().width / 2, mBotonJugar.getLocalBounds().height / 2);
     mBotonJugar.setPosition(mContexto->mVentana->getSize().x / 2, mContexto->mVentana->getSize().y / 2 - 25.f);
     mBotonJugar.setCharacterSize(20);
 
-    // Configurar el botón de salir
+    // Configurar el botÃ³n de salir
     mBotonSalir.setFont(mContexto->mAssets->GetFondo(MAIN_FONT));
     mBotonSalir.setString("Salir");
     mBotonSalir.setOrigin(mBotonSalir.getLocalBounds().width / 2, mBotonSalir.getLocalBounds().height / 2);
@@ -96,10 +96,10 @@ void MainMenu::ProcesarInput()
     }
 }
 
-// Funcion para actualizar el estado del menú
+// Funcion para actualizar el estado del menÃº
 void MainMenu::Actualizar(const sf::Time& deltaTime)
 {
-    // Cambiar el color del texto según el botón seleccionado
+    // Cambiar el color del texto segÃºn el botÃ³n seleccionado
     if (mBotonPlaySeleccionado)
     {
         mBotonJugar.setFillColor(sf::Color::Black);
@@ -111,7 +111,7 @@ void MainMenu::Actualizar(const sf::Time& deltaTime)
         mBotonJugar.setFillColor(sf::Color::White);
     }
 
-    // Realizar la acción correspondiente si un botón ha sido presionado
+    // Realizar la acciÃ³n correspondiente si un botÃ³n ha sido presionado
     if (mBotonPlayPresionado)
     {
         mContexto->mStates->Add(std::make_unique<GamePlay>(mContexto), true);
@@ -122,7 +122,7 @@ void MainMenu::Actualizar(const sf::Time& deltaTime)
     }
 }
 
-// Funcion para dibujar el menú
+// Funcion para dibujar el menÃº
 void MainMenu::Dibujar()
 {
     mContexto->mVentana->clear(sf::Color::Green);
