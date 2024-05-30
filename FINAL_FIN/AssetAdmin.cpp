@@ -6,28 +6,28 @@ Engine::AssetMan::AssetMan() {}
 // Destructor de AssetMan
 Engine::AssetMan::~AssetMan() {}
 
-// Funcion para añadir una textura al administrador de activos
+// Funcion para aÃ±adir una textura al administrador de activos
 void Engine::AssetMan::AnadirTextura(int id, const std::string& filePath, bool wantRepeated)
 {
-    auto texture = std::make_unique<sf::Texture>();  // Creamos una textura única
+    auto texture = std::make_unique<sf::Texture>();  // Creamos una textura Ãºnica
 
     // Cargamos la textura desde el archivo especificado
     if (texture->loadFromFile(filePath))
     {
         texture->setRepeated(wantRepeated);  // Configuramos si la textura debe repetirse
-        mTexturas[id] = std::move(texture);  // Movemos la textura única al mapa de texturas
+        mTexturas[id] = std::move(texture);  // Movemos la textura Ãºnica al mapa de texturas
     }
 }
 
-// Método para añadir una fuente al administrador de activos
+// MÃ©todo para aÃ±adir una fuente al administrador de activos
 void Engine::AssetMan::AnadirFondo(int id, const std::string& filePath)
 {
-    auto font = std::make_unique<sf::Font>();  // Creamos una fuente única
+    auto font = std::make_unique<sf::Font>();  // Creamos una fuente Ãºnica
 
     // Cargamos la fuente desde el archivo especificado
     if (font->loadFromFile(filePath))
     {
-        mFondos[id] = std::move(font);  // Movemos la fuente única al mapa de fuentes
+        mFondos[id] = std::move(font);  // Movemos la fuente Ãºnica al mapa de fuentes
     }
 }
 
