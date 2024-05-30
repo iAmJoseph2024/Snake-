@@ -11,7 +11,7 @@ void Engine::StateMan::Add(std::unique_ptr<State> toAdd, bool replace)
 {
     m_add = true; // Marca que se debe agregar un nuevo estado
     m_newState = std::move(toAdd); // Mueve el nuevo estado al miembro m_newState
-    m_replace = replace; // Determina si el nuevo estado reemplazar· al actual
+    m_replace = replace; // Determina si el nuevo estado reemplazar√° al actual
 }
 
 // Funcion para eliminar el estado actual
@@ -20,17 +20,17 @@ void Engine::StateMan::PopCurrent()
     m_remove = true; // Marca que se debe eliminar el estado actual
 }
 
-// MÈtodo para eliminar todos los estados
+// M√©todo para eliminar todos los estados
 void Engine::StateMan::PopAll()
 {
     m_removeAll = true; // Marca que se deben eliminar todos los estados
-    m_remove = false; // Asegura que no se procese una eliminaciÛn individual
+    m_remove = false; // Asegura que no se procese una eliminaci√≥n individual
 }
 
 // Funcion para procesar los cambios de estado
 void Engine::StateMan::ProcessStateChange()
 {
-    // Elimina todos los estados si est· marcado
+    // Elimina todos los estados si est√° marcado
     if (m_removeAll)
     {
         while (!m_stateStack.empty())
@@ -39,12 +39,12 @@ void Engine::StateMan::ProcessStateChange()
         }
         m_removeAll = false; 
     }
-    // Elimina el estado actual si est· marcado
+    // Elimina el estado actual si est√° marcado
     else if (m_remove && (!m_stateStack.empty()))
     {
         m_stateStack.pop();
 
-        // Si todavÌa hay estados en el stack, reanuda el estado superior
+        // Si todav√≠a hay estados en el stack, reanuda el estado superior
         if (!m_stateStack.empty())
         {
             m_stateStack.top()->Empezar();
@@ -53,17 +53,17 @@ void Engine::StateMan::ProcessStateChange()
         m_remove = false; 
     }
 
-    // Agrega un nuevo estado si est· marcado
+    // Agrega un nuevo estado si est√° marcado
     if (m_add)
     {
-        // Reemplaza el estado actual si est· marcado
+        // Reemplaza el estado actual si est√° marcado
         if (m_replace && (!m_stateStack.empty()))
         {
             m_stateStack.pop();
             m_replace = false; 
         }
 
-        // Pausa el estado actual si el stack no est· vacÌo
+        // Pausa el estado actual si el stack no est√° vac√≠o
         if (!m_stateStack.empty())
         {
             m_stateStack.top()->Pausa();
@@ -83,7 +83,7 @@ std::unique_ptr<Engine::State>& Engine::StateMan::GetCurrent()
     return m_stateStack.top();
 }
 
-// Funcion para verificar si el stack de estados est· vacÌo
+// Funcion para verificar si el stack de estados est√° vac√≠o
 bool Engine::StateMan::Vacio() const
 {
     return m_stateStack.empty();
