@@ -15,7 +15,7 @@ private:
     // Contexto compartido del juego
     std::shared_ptr<Context> mContexto;
 
-    // Sprites para los elementos gr·ficos del juego
+    // Sprites para los elementos gr√°ficos del juego
     sf::Sprite mCesped;
     sf::Sprite mComida;
     std::array<sf::Sprite, 4> mParedes;
@@ -23,15 +23,15 @@ private:
     // Objeto para la serpiente del juego
     Snake mSerpiente;
 
-    // Texto para mostrar la puntuaciÛn
+    // Texto para mostrar la puntuaci√≥n
     sf::Text mPuntuacionTexto;
     int mPuntuacion;
 
-    // DirecciÛn de movimiento de la serpiente y tiempo transcurrido
+    // Direcci√≥n de movimiento de la serpiente y tiempo transcurrido
     sf::Vector2f mDireccionSnake;
     sf::Time mTiempoPasado;
 
-    // Indicador de si el juego est· pausado
+    // Indicador de si el juego est√° pausado
     bool mPausado;
 
 public:
@@ -51,7 +51,7 @@ public:
     // Dibujar los elementos en la pantalla
     void Dibujar();
 
-    // MÈtodos para pausar y reanudar el juego
+    // M√©todos para pausar y reanudar el juego
     void Pausa();
     void Empezar();
 };
