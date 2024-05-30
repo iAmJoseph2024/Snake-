@@ -5,7 +5,7 @@
 #include "AssetAdmin.h"
 #include "StateAdmin.h"
 
-// Enumeración para identificar los diferentes tipos de activos del juego
+// EnumeraciÃ³n para identificar los diferentes tipos de activos del juego
 enum AssetID
 {
     MAIN_FONT = 0,
@@ -22,7 +22,7 @@ struct Context
     std::unique_ptr<Engine::StateMan> mStates;
     std::unique_ptr<sf::RenderWindow> mVentana;
 
-    // Constructor que inicializa los punteros únicos
+    // Constructor que inicializa los punteros Ãºnicos
     Context()
     {
         mAssets = std::make_unique<Engine::AssetMan>();
@@ -38,7 +38,7 @@ private:
     // Contexto compartido del juego
     std::shared_ptr<Context> mContexto;
 
-    // Tiempo por frame para mantener una tasa de actualización constante
+    // Tiempo por frame para mantener una tasa de actualizaciÃ³n constante
     const sf::Time TiempoPorFrame = sf::seconds(1.f / 60.f);
 
 public:
