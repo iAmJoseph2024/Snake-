@@ -21,7 +21,8 @@ Este juego consiste en una pantalla inicial que tiene dos opciones "Play" y "Exi
       ↑ (Arriva) 
       → (Derecha).   
       
-  Y dentro del juego no existe la posiblilidad de pausar. 
+  Dentro del juego existe la posiblilidad de pausar mediante el uso de la tecla Esc. 
+    La pausa se abilita y desabilita con la misma tecla.
 
    Una ves inicialisado el juego si se llegara a perder se desplegara una pantalla que tengra las opciones "Retur" y "Exit".
      La opcion de return permitira el poder jugar otraves. 
