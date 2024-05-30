@@ -9,7 +9,7 @@
 // Constructor de la clase GamePlay
 GamePlay::GamePlay(std::shared_ptr<Context>& context) : mContexto(context), mPuntuacion(0), mDireccionSnake({ 16.f, 0.f }), mTiempoPasado(sf::Time::Zero), mPausado(false)
 {
-    // Inicializar el generador de números aleatorios
+    // Inicializar el generador de nÃºmeros aleatorios
     srand(time(nullptr));
 }
 
@@ -25,7 +25,7 @@ void GamePlay::Init()
     mContexto->mAssets->AnadirTextura(WALL, "Assets/Textures/wall.png", true);
     mContexto->mAssets->AnadirTextura(SNAKE, "Assets/Textures/snake.png");
 
-    // Configurar el sprite del césped
+    // Configurar el sprite del cÃ©sped
     mCesped.setTexture(mContexto->mAssets->GetTextura(GRASS));
     mCesped.setTextureRect(mContexto->mVentana->getViewport(mContexto->mVentana->getDefaultView()));
 
@@ -48,7 +48,7 @@ void GamePlay::Init()
     // Inicializar la serpiente
     mSerpiente.Init(mContexto->mAssets->GetTextura(SNAKE));
 
-    // Configurar el texto de la puntuación
+    // Configurar el texto de la puntuaciÃ³n
     mPuntuacionTexto.setFont(mContexto->mAssets->GetFondo(MAIN_FONT));
     mPuntuacionTexto.setString("Puntuacion : " + std::to_string(mPuntuacion));
     mPuntuacionTexto.setCharacterSize(15);
@@ -88,7 +88,7 @@ void GamePlay::ProcesarInput()
                 break;
             }
 
-            // Evitar que la serpiente se mueva en la dirección opuesta a su movimiento actual
+            // Evitar que la serpiente se mueva en la direcciÃ³n opuesta a su movimiento actual
             if (std::abs(mDireccionSnake.x) != std::abs(newDirection.x) || std::abs(mDireccionSnake.y) != std::abs(newDirection.y))
             {
                 mDireccionSnake = newDirection;
