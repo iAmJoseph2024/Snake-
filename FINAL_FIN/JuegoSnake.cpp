@@ -5,16 +5,16 @@
 // Constructor de la clase Game
 Game::Game() : mContexto(std::make_shared<Context>())
 {
-    // Crear una ventana con resolución 1080x720 y título "Snake Game"
+    // Crear una ventana con resoluciÃ³n 1080x720 y tÃ­tulo "Snake Game"
     mContexto->mVentana->create(sf::VideoMode(1080, 720), "Snake Game", sf::Style::Close);
-    // Agregar el menú principal como el estado inicial del juego
+    // Agregar el menÃº principal como el estado inicial del juego
     mContexto->mStates->Add(std::make_unique<MainMenu>(mContexto));
 }
 
 // Destructor de la clase Game
 Game::~Game() {}
 
-// Método principal que ejecuta el ciclo del juego
+// MÃ©todo principal que ejecuta el ciclo del juego
 void Game::Correr()
 {
     sf::CircleShape shape(100.f);
@@ -24,10 +24,10 @@ void Game::Correr()
     sf::Clock reloj;
     sf::Time timeSinceLastFrame = sf::Time::Zero;
 
-    // Bucle principal del juego que corre mientras la ventana esté abierta
+    // Bucle principal del juego que corre mientras la ventana estÃ© abierta
     while (mContexto->mVentana->isOpen())
     {
-        // Actualizar el tiempo desde la última frame
+        // Actualizar el tiempo desde la Ãºltima frame
         timeSinceLastFrame += reloj.restart();
 
         // Procesar el tiempo en incrementos del tiempo por frame definido
