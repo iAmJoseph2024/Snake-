@@ -18,13 +18,13 @@ public:
     // Inicializar la serpiente con una textura
     void Init(const sf::Texture& texture);
 
-    // Mover la serpiente en una direcciÛn especÌfica
+    // Mover la serpiente en una direcci√≥n espec√≠fica
     void Mover(const sf::Vector2f& direction);
 
-    // Comprobar si la serpiente est· en una posiciÛn especÌfica
+    // Comprobar si la serpiente est√° en una posici√≥n espec√≠fica
     bool IsOn(const sf::Sprite& other) const;
 
-    // Hacer crecer la serpiente en una direcciÛn especÌfica
+    // Hacer crecer la serpiente en una direcci√≥n espec√≠fica
     void Crecer(const sf::Vector2f& direction);
 
     // Comprobar si la serpiente ha chocado consigo misma
