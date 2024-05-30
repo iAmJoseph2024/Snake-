@@ -12,12 +12,12 @@ private:
     // Contexto compartido del juego
     std::shared_ptr<Context> mContexto;
 
-    // Elementos de texto para el título y los botones
+    // Elementos de texto para el tÃ­tulo y los botones
     sf::Text mTituloSnakeJuego;
     sf::Text mBotonReiniciar;
     sf::Text mBotonSalir;
 
-    // Variables para gestionar la selección y pulsación de los botones
+    // Variables para gestionar la selecciÃ³n y pulsaciÃ³n de los botones
     bool mBotonReiniciarSeleccionado;
     bool mBotonReiniciarPresionado;
     bool mBotonSalirSeleccionado;
