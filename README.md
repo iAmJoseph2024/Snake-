@@ -14,7 +14,7 @@ Esta recreaccion es cienporciento para usos recreativos y educativos
 
 Este juego consiste en una pantalla inicial que tiene dos opciones "Play" y "Exit".
  
-  Al seleccionar "PLay" se inicializa la pantalla del juego. 
+  Al seleccionar "Play" se inicializa la pantalla del juego. 
   El juego se manipula con las teclas
       ← (Izquierda) 
       ↓ (Abajo)
